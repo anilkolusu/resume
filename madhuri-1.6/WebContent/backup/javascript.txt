@@ -1,0 +1,103 @@
+function getresult(str){
+	var origin = str.origin.value;
+	var destin = str.destination.value;
+	var date   = str.date.value;
+	
+	$(".load-page").html('<center><img src="images/indicator_blue_small.gif">&nbsp;&nbsp;Loading....</center>');
+	alert("test");	
+	$.ajax({
+			type:"POST",
+			url: "car.htm?origin="+origin+"&&destin="+destin+"&&date="+date,
+			cache: false,
+			dataType: "json",
+			success: function(data) {
+			
+				$(".load-page").html('');
+				
+			}
+	});
+}
+
+
+
+$.each(data.main, function(i,item){
+				if (item)	{
+					if(item.s==0)
+					{
+						$(".options-menu").html('<table><tr><td><a href="aeroplane.htm" class="option-menu-img"><div class="user one" style="background-image: url(images/a2.png);"></div></a></td></tr><tr><td><a href="car.htm" class="option-menu-img"><div class="user one" style="background-image: url(images/c3.png);"></div></a></td></tr></table>');
+						$("#status-report-id").html('<tbody>'
+				 				+'<tr>'
+				 					+'<td>'
+				 						+'<div class="source-place-profile">'
+				 							+'<div class="source-photo">'
+				 								+'<div class="user one" style="background-image: url(images/1.jpg);"></div>'
+				 							+'</div>'
+				 							+'<div class="source-data">'
+				 								+'<strong></strong>'
+				 								+'<p class="sub-title"></p>'
+				 							+'</div>'
+				 						+'</div>'
+				 						+'<div class="source-place-profile">'
+				 							+'<div class="source-photo">'
+				 								+'<div class="user one" style="background-image: url(images/2.jpg);"></div>'
+				 							+'</div>'
+				 							+'<div class="source-data">'
+				 								+'<strong></strong>'
+				 								+'<p class="sub-title"></p>'
+				 							+'</div>'
+				 						+'</div>'
+				 					+'</td>'
+				 				+'</tr>'
+				 			+'</tbody>');
+						$("#display-data-status").append('<tbody>');
+					}
+				}
+			});
+			$.each(data.items, function(i,item){
+				if (item)	{
+					if(item.s==0)
+					{
+						$("#display-data-status").append('<tr>'
+							+'<td>'
+								+'<div class="source-place-profile">'
+									+'<div class="source-place">'
+										+'<div class="user one" style="background-image: url(images/c3.png);"></div>'
+									+'</div>'
+									+'<div class="aeroplane-data">'
+										+'<strong>TIME TAKEN</strong>'
+										+'<p class="sub-title"></p>'
+									+'</div>'
+								+'</div>'
+								+'<div class="data-place-profile">'
+									+'<div class="data-place">'
+										+'<strong>Cost</strong>'
+										+'<p class="sub-title"></p>'
+									+'</div>'
+									+'<div class="data-place">'
+										+'<strong>Distance</strong>'
+										+'<p class="sub-title"></p>'
+									+'</div>'
+									
+									+'<div class="data-place">'
+										+'<strong>No.of Stops</strong>'
+										+'<p class="sub-title"></p>'
+									+'</div>'
+								+'</div>'
+							+'</td>'
+						+'</tr>'
+						+'<tr>'
+							+'<td>'
+							+'<div class="via-data">'
+								+'<strong class="via-title">Via</strong>'
+								+'<p class="via">stop1, stop2, stop3, ... stopn</p>'
+							+'</div>'
+							+'</td>'
+						+'</tr>');
+					}
+					if(item.s==1)
+					{
+						$(".load-page").append(''+item.origin+'');
+					}
+				}
+				
+			});

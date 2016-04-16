@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="base.definition"
+		template="/WEB-INF/layout/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/jsp/header.jsp" />
+		<put-attribute name="body1" value="" />
+		<put-attribute name="body2" value="" />
+		<put-attribute name="body3" value="" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/footer.jsp" />
+	</definition>
+	<definition name="home.definition"
+		template="/WEB-INF/jsp/home/home-layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/jsp/home/homepage-header.jsp" />
+		<put-attribute name="body1" value="" />
+		<put-attribute name="body2" value="" />
+		<put-attribute name="body3" value="" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/home/homepage-footer.jsp" />
+	</definition>
+
+	<definition name="login" extends="base.definition">
+		<put-attribute name="title" value="Contact Manager" />
+		<put-attribute name="body1" value="/WEB-INF/jsp/login/loginpage-left.jsp" />
+		<put-attribute name="body2" value="/WEB-INF/jsp/login/loginpage-mid.jsp" />
+		<put-attribute name="body3" value="/WEB-INF/jsp/login/loginpage-right.jsp" />
+	</definition>
+	
+	<definition name="register" extends="base.definition">
+		<put-attribute name="title" value="Contact Manager" />
+		<put-attribute name="body1" value="/WEB-INF/jsp/register/register-left.jsp" />
+		<put-attribute name="body2" value="/WEB-INF/jsp/register/register-mid.jsp" />
+		<put-attribute name="body3" value="/WEB-INF/jsp/register/register-right.jsp" />
+	</definition>
+	
+	<definition name="home" extends="home.definition">
+		<put-attribute name="title" value="Contact Manager" />
+		<put-attribute name="body1" value="/WEB-INF/jsp/home/homepage-mid1.jsp" />
+		<put-attribute name="body2" value="" />
+		<put-attribute name="body3" value="" />
+	</definition>
+	
+	<definition name="aeroplane" extends="home.definition">
+		<put-attribute name="title" value="Contact Manager" />
+		<put-attribute name="body1" value="/WEB-INF/jsp/home/homepage-mid1.jsp" />
+		<put-attribute name="body2" value="/WEB-INF/jsp/home/homepage-mid2.jsp" />
+		<put-attribute name="body3" value="/WEB-INF/jsp/home/homepage-right.jsp" />
+	</definition>
+	
+	<definition name="car" extends="home.definition">
+		<put-attribute name="title" value="Contact Manager" />
+		<put-attribute name="body1" value="/WEB-INF/jsp/home/homepage-mid1.jsp" />
+		<put-attribute name="body2" value="" />
+		<put-attribute name="body3" value="" />
+	</definition>
+	
+	<definition name="historydetailstiles" extends="home.definition">
+		<put-attribute name="title" value="Contact Manager" />
+		<put-attribute name="body1" value="/WEB-INF/jsp/home/historydetails-mid1.jsp" />
+		<put-attribute name="body2" value="" />
+		<put-attribute name="body3" value="" />
+	</definition>
+	
+	<definition name="flighttiles" extends="home.definition">
+		<put-attribute name="title" value="Contact Manager" />
+		<put-attribute name="body1" value="/WEB-INF/jsp/home/homepage-mid3.jsp" />
+		<put-attribute name="body2" value="" />
+		<put-attribute name="body3" value="" />
+	</definition>
+	<definition name="flightfirsttiles" extends="home.definition">
+		<put-attribute name="title" value="Contact Manager" />
+		<put-attribute name="body1" value="/WEB-INF/jsp/home/homepage-mid4.jsp" />
+		<put-attribute name="body2" value="" />
+		<put-attribute name="body3" value="" />
+	</definition>
+	<definition name="flightsecondtiles" extends="home.definition">
+		<put-attribute name="title" value="Contact Manager" />
+		<put-attribute name="body1" value="/WEB-INF/jsp/home/homepage-mid5.jsp" />
+		<put-attribute name="body2" value="" />
+		<put-attribute name="body3" value="" />
+	</definition>
+	<definition name="comparetiles" extends="home.definition">
+		<put-attribute name="title" value="Contact Manager" />
+		<put-attribute name="body1" value="/WEB-INF/jsp/home/homepage-mid6.jsp" />
+		<put-attribute name="body2" value="" />
+		<put-attribute name="body3" value="" />
+	</definition>
+
+</tiles-definitions>

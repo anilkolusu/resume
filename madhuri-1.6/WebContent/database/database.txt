@@ -1,0 +1,151 @@
+drop database rootservice;
+create database rootservice;
+use rootservice;
+
+drop table if exists login;
+CREATE TABLE `rootservice`.`login` (
+  `userid` VARCHAR(40) NOT NULL,
+  `fullname` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NULL,
+  `password` VARCHAR(45) NULL,
+  PRIMARY KEY (`userid`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC));
+
+drop table if exists car_details;
+CREATE TABLE `rootservice`.`car_details` (
+  `car_id` INT NOT NULL AUTO_INCREMENT,
+  `car_name` VARCHAR(45) NOT NULL,
+  `car_year` VARCHAR(45) NOT NULL,
+  `car_model` VARCHAR(45) NOT NULL,
+  `car_make` VARCHAR(45) NOT NULL,
+  `fuel_type` INT NOT NULL,
+  `car_mileage_per_litter` INT NOT NULL,
+  `car_fuel_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`car_id`));
+  
+  insert into car_details(car_name,car_year,car_model,car_make,fuel_type,car_mileage_per_litter,car_fuel_name)
+  values('BMW Super','2016','228i(Pre)','BMW',1,30,'Petrol');
+  insert into car_details(car_name,car_year,car_model,car_make,fuel_type,car_mileage_per_litter,car_fuel_name)
+  values('BMW Super','2016','228i Convertible(Pre)','BMW',1,25,'Petrol');
+  insert into car_details(car_name,car_year,car_model,car_make,fuel_type,car_mileage_per_litter,car_fuel_name)
+  values('BMW Super','2016','228i Xdrive(Pre)','BMW',1,28,'Petrol');
+  insert into car_details(car_name,car_year,car_model,car_make,fuel_type,car_mileage_per_litter,car_fuel_name)
+  values('Bentley Super','2016','Continental Gt(4.0)(Pre)','Blentley',1,35,'Petrol');
+  insert into car_details(car_name,car_year,car_model,car_make,fuel_type,car_mileage_per_litter,car_fuel_name)
+  values('Bentley Super','2016','Flying Spur(4.0)(Pre)','Blentley',1,35,'Petrol');
+  insert into car_details(car_name,car_year,car_model,car_make,fuel_type,car_mileage_per_litter,car_fuel_name)
+  values('Bentley Super','2016','Flying Spur(6.0)(Pre)','Blentley',1,35,'Petrol');
+  
+  insert into car_details(car_name,car_year,car_model,car_make,fuel_type,car_mileage_per_litter,car_fuel_name)
+  values('BMW Super','2015','228i(Pre)','BMW',1,30,'Petrol');
+  insert into car_details(car_name,car_year,car_model,car_make,fuel_type,car_mileage_per_litter,car_fuel_name)
+  values('BMW Super','2015','228i Convertible(Pre)','BMW',1,25,'Petrol');
+  insert into car_details(car_name,car_year,car_model,car_make,fuel_type,car_mileage_per_litter,car_fuel_name)
+  values('BMW Super','2015','228i Xdrive(Pre)','BMW',1,28,'Petrol');
+  insert into car_details(car_name,car_year,car_model,car_make,fuel_type,car_mileage_per_litter,car_fuel_name)
+  values('Bentley Super','2015','Continental Gt(4.0)(Pre)','Blentley',1,35,'Petrol');
+  insert into car_details(car_name,car_year,car_model,car_make,fuel_type,car_mileage_per_litter,car_fuel_name)
+  values('Bentley Super','2015','Flying Spur(4.0)(Pre)','Blentley',1,35,'Petrol');
+  insert into car_details(car_name,car_year,car_model,car_make,fuel_type,car_mileage_per_litter,car_fuel_name)
+  values('Bentley Super','2015','Flying Spur(6.0)(Pre)','Blentley',1,35,'Petrol');
+  
+drop table if exists history_details;
+CREATE TABLE `rootservice`.`history_details` (
+  `origin` TEXT NOT NULL,
+  `destination` TEXT NOT NULL,
+  `npssgrs` INT NOT NULL,
+  `caryear` TEXT NOT NULL,
+  `carmake` TEXT NOT NULL,
+  `carmodel` TEXT NOT NULL,
+  `hours` INT NOT NULL,
+  `dateofentry` DATETIME NOT NULL);
+ALTER TABLE `rootservice`.`history_details` 
+ADD COLUMN `history_id` VARCHAR(100) NOT NULL AFTER `dateofentry`,
+ADD PRIMARY KEY (`history_id`);
+
+drop table if exists flight_details;
+CREATE TABLE `rootservice`.`flight_details` (
+  `flight_id` INT NOT NULL AUTO_INCREMENT,
+  `flight_name` TEXT NOT NULL,
+  `noofseets` INT NOT NULL,
+  `description` TEXT NOT NULL,
+  PRIMARY KEY (`flight_id`));
+
+insert into  flight_details(flight_name,noofseets,description) values('King Fisher Airline',40,'Description Of the King Fisher Airline');
+drop table if exists flight_detail_status;
+CREATE TABLE `rootservice`.`flight_detail_status` (
+  `flight_id` INT NOT NULL,
+  `origin` TEXT NOT NULL,
+  `destination` TEXT NOT NULL,
+  `via` TEXT NOT NULL,
+  `seetsavailable` INT NOT NULL,
+  `airport_name` TEXT NOT NULL,
+  `departure_time` TIME NOT NULL,
+  `araival_time` TIME NOT NULL);
+  
+  ALTER TABLE `rootservice`.`flight_detail_status` 
+	ADD INDEX `foreign_key_for_flight_id_idx` (`flight_id` ASC);
+    
+  ALTER TABLE `rootservice`.`flight_detail_status` 
+	ADD CONSTRAINT `foreign_key_for_flight_id`
+		FOREIGN KEY (`flight_id`)
+		REFERENCES `rootservice`.`flight_details` (`flight_id`)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE;
+        
+drop table if exists admin;
+CREATE TABLE `rootservice`.`admin` (
+  `username` VARCHAR(40) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`username`),
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC));
+insert into admin(username,password) values('admin','admin');
+drop table if exists flight;
+CREATE TABLE `rootservice`.`flight` (
+  `idflightid` VARCHAR(45) NOT NULL,
+  `flightname` VARCHAR(45) NOT NULL,
+  `airportname` TEXT NOT NULL,
+  `origin` TEXT NOT NULL,
+  `destin` TEXT NOT NULL,
+  `atime` timestamp NOT NULL,
+  `dtime` timestamp NOT NULL,
+  PRIMARY KEY (`idflightid`));
+
+insert into flight(idflightid,flightname,airportname,origin,destin,atime,dtime) 
+values('f12345','King Fisher AirLine','Madhuri Airport','Chicago, IL, USA','New York, NY, USA','12:12:12 00:00:000','23:12:12 00:00:000');
+
+
+drop table if exists flight_compare_details;
+CREATE TABLE `rootservice`.`flight_compare_details` (
+  `compare_id` VARCHAR(100) NOT NULL,
+  `driving_time_to_mdw` VARCHAR(45) NOT NULL,
+  `time_at_mdw` VARCHAR(45) NOT NULL,
+  `estimated_flying_time` VARCHAR(45) NOT NULL,
+  `time_at_sjc` VARCHAR(45) NOT NULL,
+  `driving_time_from_sjc` VARCHAR(45) NOT NULL,
+  `one_way_door_to_door` VARCHAR(45) NOT NULL,
+  `total_ticket_cost` VARCHAR(45) NOT NULL,
+  `total_baggage_fees` VARCHAR(45) NOT NULL,
+  `total_car_rental_cost` VARCHAR(45) NOT NULL,
+  `mdw_transportation_cost` VARCHAR(45) NOT NULL,
+  `mdw_parking_cost` VARCHAR(45) NOT NULL,
+  `lga_transportation_cost` VARCHAR(45) NOT NULL,
+  `total_one_way_trip_cost` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`compare_id`));
+  
+  drop table if exists car_compare_details;
+  CREATE TABLE `rootservice`.`car_compare_details` (
+  `compare_id` VARCHAR(100) NOT NULL,
+  `car_distance` VARCHAR(45) NOT NULL,
+  `car_time` VARCHAR(45) NOT NULL,
+  `car_duration` VARCHAR(45) NOT NULL,
+  `car_travel` VARCHAR(45) NOT NULL,
+  `total_fuel_cost` VARCHAR(45) NOT NULL,
+  `wear_tear` VARCHAR(45) NOT NULL,
+  `estimated_hotel_cost` VARCHAR(45) NOT NULL,
+  `estimated_tolls` VARCHAR(45) NOT NULL,
+  `total_round_trip_cost` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`compare_id`));
+  
+  
+  

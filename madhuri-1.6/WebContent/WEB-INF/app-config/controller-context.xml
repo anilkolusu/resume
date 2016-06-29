@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/login.htm">loginController</prop>
+				<prop key="/register.htm">registerController</prop>
+				<prop key="/aeroplane.htm">aeroplaneController</prop>
+				<prop key="/car.htm">carController</prop>
+				<prop key="/direction.htm">directionController</prop>
+				<prop key="/logout.htm">logoutController</prop>
+				<prop key="/getmakeinfo.htm">carMakeInfoController</prop>
+				<prop key="/history.htm">historyController</prop>
+				<prop key="/home.htm">homeController</prop>
+				<prop key="/flight.htm">flightController</prop>
+				<prop key="/flightaction.htm">flightActionController</prop>
+				<prop key="/flightfirstaction.htm">flightFirstActionController</prop>
+				<prop key="/flightsecondaction.htm">flightSecondActionController</prop>
+				<prop key="/compare.htm">flightCarCompareController</prop>
+				<prop key="/comparedata.htm">getCompareDateController</prop>
+				<!--<prop key="/caraction.htm">CarActionController</prop>
+			--></props>
+		</property>
+	</bean>
+
+	<bean id="loginValidator" class="com.rootservice.validator.LoginValidator" />
+	<bean id="loginController" class="com.rootservice.controller.LoginController" >
+		<property name="formView" value="login" />
+		<property name="validator" ref="loginValidator" />
+		<property name="loginService" ref="loginservice"/>
+	</bean>
+	
+	<bean id="registerValidator" class="com.rootservice.validator.RegisterValidator" />
+	<bean id="registerController" class="com.rootservice.controller.RegisterController" >
+		<property name="formView" value="register" />
+		<property name="validator" ref="registerValidator" />
+		<property name="registerService" ref="registerservice"/>
+	</bean>
+	<bean id="homeController" class="com.rootservice.controller.HomeController" />
+	<bean id="aeroplaneController"
+		class="com.rootservice.controller.AeroplaneController" />
+	
+	<bean id="carController"
+		class="com.rootservice.controller.CarController" />
+		
+	<bean id="directionController" class="com.rootservice.controller.DirectionController">
+		<property name="getDirectionJsonParserService" ref="getdirectionjsonparserservice"/>
+		<property name="getCarInfoService" ref="getcarinfoservice"/>
+	</bean>
+	
+	<bean id="carMakeInfoController" class="com.rootservice.controller.GetCarInfoController">
+		<property name="getCarInfoService" ref="getcarinfoservice"/>
+	</bean>
+	
+	<bean id="logoutController"
+		class="com.rootservice.controller.LogoutController" />
+		
+	<bean id="historyController" class="com.rootservice.controller.HistoryController">
+		<property name="getHistoryService" ref="gethistoryservice"/>
+	</bean>
+	
+	<bean id="flightController" class="com.rootservice.controller.FlightController">
+	</bean>
+	
+	<bean id="flightActionController" class="com.rootservice.controller.FlightActionController">
+		
+		<property name="flightService" ref="flightservice"/>
+	</bean>
+	
+	<bean id="flightFirstActionController" class="com.rootservice.controller.FlightFirstActionController">
+		<property name="flightService" ref="flightservice"/>
+	</bean>
+	
+	<bean id="flightSecondActionController" class="com.rootservice.controller.FlightSecondActionController">
+		<property name="flightService" ref="flightservice"/>
+	</bean>
+	<bean id="flightCarCompareController" class="com.rootservice.controller.FlightCarCompareController">
+		<property name="flightService" ref="flightservice"/>
+	</bean>
+	<bean id="getCompareDateController" class="com.rootservice.controller.GetCompareDataController">
+		<property name="flightService" ref="flightservice"/>
+	</bean>
+		
+</beans>

@@ -1,0 +1,148 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<div class="home-body-mid">
+	<div class="load-page">
+			hhhg
+		</div>
+	<div class="status-page">
+		
+		<div class="options-menu">
+			<table>
+				<tr>
+					<td>
+						<a href="aeroplane.htm" class="option-menu-img"><div class="user one" style="background-image: url('images/a2.png');"></div></a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="car.htm" class="option-menu-img"><div class="user one" style="background-image: url('images/c3.png');"></div></a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<table class="status-report">
+			<tbody>
+ 								<tr>
+   								<td>
+   									<div class="source-place-profile">
+   										<div class="source-photo">
+   											<div class="user one" style="background-image: url('images/1.jpg');">
+   										
+   											</div>
+   										</div>
+   										<div class="source-data">
+   											<strong>ALABAMA</strong>
+   											<p class="sub-title">BirminghamâShuttlesworth International Airport</p>
+   										</div>
+   									</div>
+   									<div class="source-place-profile">
+   										<div class="source-photo">
+   											<div class="user one" style="background-image: url('images/2.jpg');">
+   										
+   											</div>
+   										</div>
+   										<div class="source-data">
+   											<strong>CALIFORNIA</strong>
+   											<p class="sub-title">Arcata Airport</p>
+   										</div>
+   									</div>
+   								</td>
+   							</tr>
+   						</tbody>
+		</table>
+		<table class="status-report">
+						<tbody>
+ 								<tr>
+   								<td>
+   									<div class="source-place-profile">
+   										<div class="source-place">
+   											<div class="user one" style="background-image: url('images/p1.jpg');">
+   										
+   											</div>
+   										</div>
+   										<div class="aeroplane-data">
+   											<strong>Name : Aeroplane name</strong>
+   											<p class="sub-title">No : 123456789</p>
+   										</div>
+   									</div>
+   									<div class="data-place-profile">
+   										<div class="data-place">
+   											<strong>Fire</strong>
+   											<p class="sub-title">US$10000</p>
+   										</div>
+   										<div class="data-place">
+   											<strong>Distance</strong>
+   											<p class="sub-title">1000 KM</p>
+   										</div>
+   										<div class="data-place">
+   											<strong>Arrival Time</strong>
+   											<p class="sub-title">10:00 PM</p>
+   										</div>
+   										<div class="data-place">
+   											<strong>Departure Time</strong>
+   											<p class="sub-title">02:00 PM</p>
+   										</div>
+   										<div class="data-place">
+   											<strong>No.of Stops</strong>
+   											<p class="sub-title">10</p>
+   										</div>
+   									</div>
+   								</td>
+			   	</tr>
+			   	<tr>
+			   		<td>
+			   			<div class="via-data">
+   										<strong class="via-title">Via</strong>
+   										<p class="via">stop1, stop2, stop3, ... stopn</p>
+   									</div>
+			   		</td>
+			   	</tr>
+			   	<tr>
+   								<td>
+   									<div class="source-place-profile">
+   										<div class="source-place">
+   											<div class="user one" style="background-image: url('images/p1.jpg');">
+   										
+   											</div>
+   										</div>
+   										<div class="aeroplane-data">
+   											<strong>Name : Aeroplane name</strong>
+   											<p class="sub-title">No : 123456789</p>
+   										</div>
+   									</div>
+   									<div class="data-place-profile">
+   										<div class="data-place">
+   											<strong>Fire</strong>
+   											<p class="sub-title">US$10000</p>
+   										</div>
+   										<div class="data-place">
+   											<strong>Distance</strong>
+   											<p class="sub-title">1000 KM</p>
+   										</div>
+   										<div class="data-place">
+   											<strong>Arrival Time</strong>
+   											<p class="sub-title">10:00 PM</p>
+   										</div>
+   										<div class="data-place">
+   											<strong>Departure Time</strong>
+   											<p class="sub-title">02:00 PM</p>
+   										</div>
+   										<div class="data-place">
+   											<strong>No.of Stops</strong>
+   											<p class="sub-title">10</p>
+   										</div>
+   									</div>
+   								</td>
+			   	</tr>
+			   	<tr>
+			   		<td>
+			   			<div class="via-data">
+   										<strong class="via-title">Via</strong>
+   										<p class="via">stop1, stop2, stop3, ... stopn</p>
+   									</div>
+			   		</td>
+			   	</tr>
+			</tbody>
+				</table>
+	</div>
+</div>
